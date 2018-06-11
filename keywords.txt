@@ -1,0 +1,42 @@
+#######################################
+# Syntax Coloring Map
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+LED	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+begin	KEYWORD2
+setLEDColor	KEYWORD2
+setLEDBrightness	KEYWORD2
+LEDOff	KEYWORD2
+changeAddress	KEYWORD2
+changeLength	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+Qwiic_LED_Stick_h LITERAL1
+COMMAND_CHANGE_ADDRESS	LITERAL1
+COMMAND_CHANGE_LED_LENGTH	LITERAL1
+COMMAND_WRITE_SINGLE_LED_COLOR	LITERAL1
+COMMAND_WRITE_ALL_LED_COLOR	LITERAL1
+COMMAND_WRITE_RED_ARRAY	LITERAL1
+COMMAND_WRITE_GREEN_ARRAY	LITERAL1
+COMMAND_WRITE_BLUE_ARRAY	LITERAL1
+COMMAND_WRITE_SINGLE_LED_BRIGHTNESS	LITERAL1
+COMMAND_WRITE_ALL_LED_BRIGHTNESS	LITERAL1
+COMMAND_WRITE_ALL_LED_OFF	LITERAL1
+
+
+
+
+
+
+
