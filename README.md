@@ -1,6 +1,6 @@
 SparkFun Qwiic LED Stick Library
 ===========================================================
-![SparkX Qwiic LED Stick](https://cdn.sparkfun.com/assets/parts/1/3/0/3/7/Qwiic_LED_Rainbow.gif)
+![SparkX Qwiic LED Stick](https://cdn.sparkfun.com/assets/parts/1/3/0/3/7/Qwiic_LED_Stick_Rainbow.gif)
 
 [*SparkX Qwiic LED Stick (SPX-14783)*](https://www.sparkfun.com/products/14783)
 
