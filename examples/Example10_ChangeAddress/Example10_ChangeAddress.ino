@@ -16,13 +16,16 @@
 
 #include "Qwiic_LED_Stick.h" // Click here to get the library: http://librarymanager/All#Sparkfun_Qwiic_LED_Stick
 
-LED LEDStick;
+LED LEDStick; //Create an object of the LED class
 
 void setup() {
-  Wire.begin();
   Serial.begin(9600);
+  //Start up communication with the LED Stick
   LEDStick.begin();
+  //Change the address of the LEDStick from 0x23 to 0x29
   LEDStick.changeAddress(0x23, 0x29);
+  //Set all LEDs dim white.
+  //Note that the call for this command doesn't depend on an address
   LEDStick.setLEDColor(10, 10, 10);
 
 }

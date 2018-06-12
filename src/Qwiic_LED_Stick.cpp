@@ -2,8 +2,8 @@
   This is a library written for the Qwiic LED Stick.
   By Ciara Jekel @ SparkFun Electronics, June 11th, 2018
 
-  The Qwiic LED Stick features ten addressable APA102 LEDs,
-  making it easy to add an output to your latest project.
+  The Qwiic LED Stick features ten addressable APA102 LEDs, 
+  making it easy to add full color LED control using I2C. 
   Write to individual LEDs to display a count in binary,
   or write to the whole strip for cool lighting effects
   
@@ -23,7 +23,7 @@
 LED::LED() {
   _LEDAddress = 0;
 }
-
+//Start I2C communication
 boolean LED::begin(byte address) {
   if (address < 0x08 || address > 0x77) return false; //invalid I2C addresses
   _LEDAddress = address; //store the address in a private global variable
@@ -168,6 +168,7 @@ boolean LED::setLEDBrightness(byte number, byte brightness) {
   }
   return (true);
 }
+
 //Change the brightness of all LEDs, while keeping their current color
 //brightness must be a value between 0-31
 //To turn all LEDs off but remember their previous color, set brightness to 0

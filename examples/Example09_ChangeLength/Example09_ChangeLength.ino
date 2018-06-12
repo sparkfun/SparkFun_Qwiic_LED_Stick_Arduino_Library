@@ -16,13 +16,17 @@
 
 #include "Qwiic_LED_Stick.h" // Click here to get the library: http://librarymanager/All#Sparkfun_Qwiic_LED_Stick
 
-LED LEDStick;
+LED LEDStick; //Create an object of the LED class
 
 void setup() {
   Wire.begin();
   Serial.begin(9600);
+  //Start up communication with the LED Stick
   LEDStick.begin();
+  //Change LED length to 5
+  //This will allow you to write to a maximum of 5 LEDs
   LEDStick.changeLength(5);
+  //Set all LEDs dim white, notice only 5 are lit.
   LEDStick.setLEDColor(10, 10, 10);
 }
 

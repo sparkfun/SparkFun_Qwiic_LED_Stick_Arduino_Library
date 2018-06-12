@@ -7,26 +7,31 @@
 
   Feel like supporting our work? Buy a board from SparkFun!
   https://www.sparkfun.com/products/14783
-  
-  This example controls single LEDs on the LED Stick.
+
+  This example will alternate blinking two single LEDs on the LED Stick.
 
 */
 
 #include "Qwiic_LED_Stick.h" // Click here to get the library: http://librarymanager/All#Sparkfun_Qwiic_LED_Stick
 
-LED LEDStick;
+LED LEDStick; //Create an object of the LED class
 
 void setup() {
   Serial.begin(9600);
+  //Start up communication with the LED Stick
   LEDStick.begin();
 }
 
 void loop() {
-  LEDStick.LEDOff(); //turn off all LEDs
-  LEDStick.setLEDColor(4,255, 0, 0); //turn on LED#4, red
+  //turn off all LEDs
+  LEDStick.LEDOff();
+  //turn on LED#4, red
+  LEDStick.setLEDColor(4, 255, 0, 0);
   delay(1000);
-  LEDStick.LEDOff(); //turn off all LEDs
-  LEDStick.setLEDColor(6,255, 0, 0); //turn on LED#6, red
+  //turn off all LEDs
+  LEDStick.LEDOff();
+  //turn on LED#6, red
+  LEDStick.setLEDColor(6, 255, 0, 0); 
   delay(1000);
 
 }

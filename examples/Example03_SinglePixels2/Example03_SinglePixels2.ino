@@ -14,8 +14,9 @@
 
 #include "Qwiic_LED_Stick.h" // Click here to get the library: http://librarymanager/All#Sparkfun_Qwiic_LED_Stick
 
-LED LEDStick;
-//Create 3 arrays the same length as the LED stick
+LED LEDStick; //Create an object of the LED class
+//Create 3 arrays the same length as the LED stick,
+//Initializing them with arbitrary values
 //           Pixel#     1    2    3    4    5    6    7    8    9   10
 byte redArray[10]   = {214,  78, 183, 198,  59, 134,  15, 209, 219, 186}; //r
 byte greenArray[10] = { 59, 216, 170,  21, 114,  63, 226,  92, 155, 175}; //g
@@ -23,14 +24,17 @@ byte blueArray[10]  = {214, 147,  25, 124, 153, 163, 188,  33, 175, 221}; //b
 
 void setup() {
   Serial.begin(9600);
+  //Start up communication with the LED Stick
   LEDStick.begin();
-  //set all pixels at once to the color values corresponding to same the entry in the array
-  //e.g. the third LED will be the color of the third entries in the array
+  //Set all pixels at once to the color values
+  //corresponding to same the entry in the array
+  //e.g. the third LED will be the color of the
+  //r,g,b values from the third entries in the array
   LEDStick.setLEDColor(redArray, greenArray, blueArray, 10);
 }
 
 
 void loop() {
- 
+
 }
 
