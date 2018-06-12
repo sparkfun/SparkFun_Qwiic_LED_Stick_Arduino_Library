@@ -12,13 +12,15 @@
 
 */
 
-#include "Qwiic_LED_Stick.h" // Click here to get the library: http://librarymanager/All#Sparkfun_Qwiic_LED_Stick
+#include <Wire.h>
+#include "Qwiic_LED_Stick.h" // Click here to get the library: http://librarymanager/All#SparkFun_Qwiic_LED_Stick
 
 
 //Create an object of the LED class
 LED LEDStick;
 
 void setup() {
+  Wire.begin();
   Serial.begin(9600);
   //Start up communication with the LED Stick
   LEDStick.begin();

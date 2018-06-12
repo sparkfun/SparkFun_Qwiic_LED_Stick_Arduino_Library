@@ -12,11 +12,13 @@
 
 */
 
-#include "Qwiic_LED_Stick.h" // Click here to get the library: http://librarymanager/All#Sparkfun_Qwiic_LED_Stick
+#include <Wire.h>
+#include "Qwiic_LED_Stick.h" // Click here to get the library: http://librarymanager/All#SparkFun_Qwiic_LED_Stick
 
 LED LEDStick; //Create an object of the LED class
 
 void setup() {
+  Wire.begin();
   Serial.begin(9600);
   //Start up communication with the LED Stick
   LEDStick.begin();
@@ -24,7 +26,7 @@ void setup() {
 
 void loop() {
   //Set all LEDs the same color (white)
-  LEDStick.setLEDColor(255, 255, 255);
+  LEDStick.setLEDColor(50, 50, 50);
   delay(1000);
   //Turn off all LEDs
   LEDStick.LEDOff();

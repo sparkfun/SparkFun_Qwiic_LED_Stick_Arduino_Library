@@ -8,9 +8,7 @@
   Feel like supporting our work? Buy a board from SparkFun!
   https://www.sparkfun.com/products/14783
 
-  This example changes the address of the LED stick and shows the results by writing the whole strip white.
-  Address will not reset on restart. Change the address back to defualt with LEDStick.changeAddress(0x29, 0x23);
-  Uploading another sketch will require LEDStick.begin(0x29);
+
 
 */
 #include <Wire.h>
@@ -21,12 +19,8 @@ LED LEDStick; //Create an object of the LED class
 void setup() {
   Wire.begin();
   Serial.begin(9600);
-  //Start up communication with the LED Stick
-  LEDStick.begin();
-  //Change the address of the LEDStick from 0x23 to 0x29
-  LEDStick.changeAddress(0x29);
-  //Set all LEDs dim white.
-  //Note that the call for this command doesn't depend on an address
+  //Start up communication with the LED Stick at address 0x29 
+  LEDStick.begin(0x29);
   LEDStick.setLEDColor(10, 10, 10);
 
 }

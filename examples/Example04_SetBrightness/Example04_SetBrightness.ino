@@ -13,7 +13,8 @@
 
 */
 
-#include "Qwiic_LED_Stick.h" // Click here to get the library: http://librarymanager/All#Sparkfun_Qwiic_LED_Stick
+#include <Wire.h>
+#include "Qwiic_LED_Stick.h" // Click here to get the library: http://librarymanager/All#SparkFun_Qwiic_LED_Stick
 
 LED LEDStick; //Create an object of the LED class
 //Create 3 arrays the same length as the LED stick,
@@ -24,6 +25,7 @@ byte greenArray[10] = {  0, 170, 255, 255, 255, 170,   0,   0,   0, 255};
 byte blueArray[10]  = {  0,   0,   0,   0, 170, 255, 255, 255, 170, 255};
 
 void setup() {
+  Wire.begin();
   Serial.begin(9600);
   //Start up communication with the LED Stick
   LEDStick.begin();

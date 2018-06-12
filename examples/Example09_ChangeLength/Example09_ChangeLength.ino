@@ -14,7 +14,8 @@
   
 */
 
-#include "Qwiic_LED_Stick.h" // Click here to get the library: http://librarymanager/All#Sparkfun_Qwiic_LED_Stick
+#include <Wire.h>
+#include "Qwiic_LED_Stick.h" // Click here to get the library: http://librarymanager/All#SparkFun_Qwiic_LED_Stick
 
 LED LEDStick; //Create an object of the LED class
 

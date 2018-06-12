@@ -40,45 +40,47 @@ class LED
   public:
 	LED();
     //Start I2C communication
-	boolean begin(byte address = 0x23);
+	boolean begin(uint8_t address = 0x23, TwoWire &wirePort = Wire);//If user doesn't specificy then 0x23 and Wire will be used
 	
 	//Change the color of a specific LED 
 	//each color must be a value between 0-255
 	//LEDS indexed starting at 1
-    boolean setLEDColor(byte number, byte red, byte green, byte blue);
+    boolean setLEDColor(uint8_t number, uint8_t red, uint8_t green, uint8_t blue);
     
 	//Change the color of all LEDs
 	//each color must be a value between 0-255
-	boolean setLEDColor(byte red, byte green, byte blue);
+	boolean setLEDColor(uint8_t red, uint8_t green, uint8_t blue);
 	
 	//Change the color of all LEDs at once to individual values
 	//Pass in 3 arrays of color values of length 'length'
 	//each color must be a value between 0-255
-    boolean setLEDColor(byte redArray[], byte greenArray[], byte blueArray[], byte length);
+    boolean setLEDColor(uint8_t redArray[], uint8_t greenArray[], uint8_t blueArray[], uint8_t length);
    
 	//Change the brightness of a specific LED, while keeping their current color
 	//brightness must be a value between 0-31
 	//To turn LEDs off but remember their previous color, set brightness to 0
 	//LEDS indexed starting at 1
-	boolean setLEDBrightness(byte number, byte brightness);
+	boolean setLEDBrightness(uint8_t number, uint8_t brightness);
   
 	//Change the brightness of all LEDs, while keeping their current color
 	//brightness must be a value between 0-31
 	//To turn all LEDs off but remember their previous color, set brightness to 0
-	boolean setLEDBrightness(byte brightness);
+	boolean setLEDBrightness(uint8_t brightness);
   
 	//Turn all LEDS off by setting color to 0
 	boolean LEDOff(void);
   
 	//Change the I2C address from one address to another
-	boolean changeAddress(byte oldAddress, byte newAddress);
+	boolean changeAddress(uint8_t newAddress);
   
 	//Change the length of LEDs
-	boolean changeLength(byte newLength);
+	boolean changeLength(uint8_t newLength);
 
   private:
 	//This stores the current I2C address of the LED Stick
-	byte _LEDAddress;
-};
+	uint8_t _LEDAddress;
+	//This stores the requested i2c port
+	TwoWire * _i2cPort;
+}; 
 
 #endif
