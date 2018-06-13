@@ -4,7 +4,7 @@ SparkFun Qwiic LED Stick Library
 
 [*SparkX Qwiic LED Stick (SPX-14783)*](https://www.sparkfun.com/products/14783)
 
-The Qwiic LED Stick features ten addressable APA102 LEDs, making it easy to add an output to your latest project. Write to individual LEDs to display a count in binary, or write to the whole strip for cool lighting effects. 
+The Qwiic LED Stick features ten addressable APA102 LEDs, making it easy to add full color LED control using I2C. Write to individual LEDs to display a count in binary, or write to the whole strip for cool lighting effects. 
   
 Repository Contents
 -------------------
