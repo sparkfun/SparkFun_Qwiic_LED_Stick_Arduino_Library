@@ -25,9 +25,16 @@ byte blueArray[10]  = {214, 147,  25, 124, 153, 163, 188,  33, 175, 221}; //b
 
 void setup() {
   Wire.begin();
-  Serial.begin(9600);
+  Serial.begin(115200);
+  
   //Start up communication with the LED Stick
-  LEDStick.begin();
+  if (LEDStick.begin() == false){
+    Serial.println("Qwiic LED Stick failed to begin. Please check wiring and try again!");
+    while(1);
+  }
+
+  Serial.println("Qwiic LED Stick ready!");
+  
   //Set all pixels at once to the color values
   //corresponding to same the entry in the array
   //e.g. the third LED will be the color of the
@@ -39,4 +46,3 @@ void setup() {
 void loop() {
 
 }
-

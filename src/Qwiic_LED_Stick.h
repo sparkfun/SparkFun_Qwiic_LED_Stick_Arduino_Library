@@ -39,8 +39,11 @@ class LED
     // user-accessible "public" interface
   public:
 	LED();
-    //Start I2C communication
+    //Initialize parameters such as I2C address and port for communication
 	boolean begin(uint8_t address = 0x23, TwoWire &wirePort = Wire);//If user doesn't specificy then 0x23 and Wire will be used
+	
+	//Test I2C connection on I2C address
+	boolean isConnected();
 	
 	//Change the color of a specific LED 
 	//each color must be a value between 0-255

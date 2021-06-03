@@ -30,9 +30,17 @@ boolean LED::begin(uint8_t address, TwoWire &wirePort) {
   if (address < 0x08 || address > 0x77) return false; //invalid I2C addresses
   _LEDAddress = address; //store the address in a private global variable
   _i2cPort = &wirePort; //Grab which port the user wants us to use		
-  _i2cPort->begin();
-  return true;
+  
+ return isConnected();
 }
+
+boolean LED::isConnected() {
+  _i2cPort->beginTransmission(_LEDAddress);
+  if (_i2cPort->endTransmission() == 0)
+    return true;
+  return false;
+}
+
 //Change the color of a specific LED
 //each color must be a value between 0-255
 //LEDS indexed starting at 1

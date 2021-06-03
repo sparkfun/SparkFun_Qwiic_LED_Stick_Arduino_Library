@@ -19,9 +19,16 @@ LED LEDStick; //Create an object of the LED class
 
 void setup() {
   Wire.begin();
-  Serial.begin(9600);
+  Serial.begin(115200);
+  
   //Start up communication with the LED Stick
-  LEDStick.begin();
+  if (LEDStick.begin() == false){
+    Serial.println("Qwiic LED Stick failed to begin. Please check wiring and try again!");
+    while(1);
+  }
+
+  Serial.println("Qwiic LED Stick ready!");
+  
   //Set colors for the gradient
   //These are for the first color
   byte r1 = 238, g1 = 49, b1 = 36;
@@ -58,4 +65,3 @@ void colorGradient(byte r1, byte g1, byte b1, byte r2, byte g2, byte b2, byte LE
     LEDStick.setLEDColor(i + 1, rValue, gValue, bValue);
   }
 }
-

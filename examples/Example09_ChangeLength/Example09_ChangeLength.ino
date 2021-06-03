@@ -21,9 +21,18 @@ LED LEDStick; //Create an object of the LED class
 
 void setup() {
   Wire.begin();
-  Serial.begin(9600);
+  Serial.begin(115200);
+  
   //Start up communication with the LED Stick
-  LEDStick.begin();
+  if (LEDStick.begin() == false){
+    Serial.println("Qwiic LED Stick failed to begin. Please check wiring and try again!");
+    while(1);
+  }
+
+  Serial.println("Qwiic LED Stick ready!");
+
+  //First, turn all LEDs off
+  LEDStick.LEDOff();
   //Change LED length to 5
   //This will allow you to write to a maximum of 5 LEDs
   LEDStick.changeLength(5);
@@ -35,4 +44,3 @@ void loop() {
 
 
 }
-
