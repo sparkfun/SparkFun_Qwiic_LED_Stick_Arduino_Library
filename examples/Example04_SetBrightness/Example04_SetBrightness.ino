@@ -36,9 +36,13 @@ void setup() {
   }
 
   Serial.println("Qwiic LED Stick ready!");
+
+  //Start by resetting the state of the LEDs
+  LEDStick.LEDOff();
   
   //Color the LEDStick according to the 3 arrays
   LEDStick.setLEDColor(redArray, greenArray, blueArray, 10);
+  delay(10);
 }
 
 void loop() {

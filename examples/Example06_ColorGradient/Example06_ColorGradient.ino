@@ -28,6 +28,9 @@ void setup() {
   }
 
   Serial.println("Qwiic LED Stick ready!");
+
+  //Start by resetting the state of the LEDs
+  LEDStick.LEDOff();
   
   //Set colors for the gradient
   //These are for the first color
@@ -62,6 +65,6 @@ void colorGradient(byte r1, byte g1, byte b1, byte r2, byte g2, byte b2, byte LE
     byte bValue = b1 + bSlope * i;
     //Set the (i+1)th pixel to the calculated color
     //the first LED corresponds to the 0th point on the line
-    LEDStick.setLEDColor(i + 1, rValue, gValue, bValue);
+    LEDStick.setLEDColor(i, rValue, gValue, bValue);
   }
 }

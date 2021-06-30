@@ -29,6 +29,9 @@ void setup() {
   }
 
   Serial.println("Qwiic LED Stick ready!");
+
+  //Start by resetting the state of the LEDs
+  LEDStick.LEDOff();
 }
 
 void loop() {

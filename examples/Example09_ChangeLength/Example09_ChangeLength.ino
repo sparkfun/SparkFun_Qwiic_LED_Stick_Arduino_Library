@@ -33,6 +33,8 @@ void setup() {
 
   //First, turn all LEDs off
   LEDStick.LEDOff();
+  delay(500); //Wait for settings to be updated
+  
   //Change LED length to 5
   //This will allow you to write to a maximum of 5 LEDs
   LEDStick.changeLength(5);

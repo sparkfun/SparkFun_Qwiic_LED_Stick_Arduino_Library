@@ -45,6 +45,20 @@ boolean LED::isConnected() {
 //each color must be a value between 0-255
 //LEDS indexed starting at 1
 boolean LED::setLEDColor(uint8_t number, uint8_t red, uint8_t green, uint8_t blue) {
+  // First, boundary check
+  if (red > 255)
+    red = 255;
+  if (red < 0)
+    red = 0;
+  if (green > 255)
+    green = 255;
+  if (green < 0)
+    green = 0;
+  if (blue > 255)
+    blue = 255;
+  if (blue < 0)
+    blue = 0;
+  
   _i2cPort->beginTransmission(_LEDAddress); //communicate using address
   _i2cPort->write(COMMAND_WRITE_SINGLE_LED_COLOR); //command to change single LED's color
   _i2cPort->write(number); //choose which LED
@@ -61,6 +75,20 @@ boolean LED::setLEDColor(uint8_t number, uint8_t red, uint8_t green, uint8_t blu
 //Change the color of all LEDs
 //each color must be a value between 0-255
 boolean LED::setLEDColor(uint8_t red, uint8_t green, uint8_t blue) {
+  // First, boundary check
+  if (red > 255)
+    red = 255;
+  if (red < 0)
+    red = 0;
+  if (green > 255)
+    green = 255;
+  if (green < 0)
+    green = 0;
+  if (blue > 255)
+    blue = 255;
+  if (blue < 0)
+    blue = 0;
+
   _i2cPort->beginTransmission(_LEDAddress); //communicate using address
   _i2cPort->write(COMMAND_WRITE_ALL_LED_COLOR); //command to change all LEDs' colors
   _i2cPort->write(red); //update red value
@@ -77,6 +105,22 @@ boolean LED::setLEDColor(uint8_t red, uint8_t green, uint8_t blue) {
 //Pass in 3 arrays of color values
 //each color must be a value between 0-255
 boolean LED::setLEDColor(uint8_t redArray[], uint8_t greenArray[], uint8_t blueArray[], uint8_t length) {
+  // First, boundary check
+  for (int i = 0; i < length; i++){
+    if (redArray[i] > 255)
+      redArray[i] = 255;
+    if (redArray[i] < 0)
+      redArray[i] = 0;
+    if (greenArray[i] > 255)
+      greenArray[i] = 255;
+    if (greenArray[i] < 0)
+      greenArray[i] = 0;
+    if (blueArray[i] > 255)
+      blueArray[i] = 255;
+    if (blueArray[i] < 0)
+      blueArray[i] = 0;
+  }
+
    //ATtiny has a 16 uint8_t limit on a single I2C transmission,
    //so multiple calls to commands are required
   uint8_t n;
@@ -158,6 +202,12 @@ boolean LED::setLEDColor(uint8_t redArray[], uint8_t greenArray[], uint8_t blueA
 //To turn LEDs off but remember their previous color, set brightness to 0
 //LEDS indexed starting at 1
 boolean LED::setLEDBrightness(uint8_t number, uint8_t brightness) {
+  // First, boundary check
+  if (brightness > 31)
+    brightness = 31;
+  if (brightness < 0)
+    brightness = 0;
+
   _i2cPort->beginTransmission(_LEDAddress); //Communicate using the address
   _i2cPort->write(COMMAND_WRITE_SINGLE_LED_BRIGHTNESS); //Command to write single brightness
   _i2cPort->write(number); //Choose which LED
@@ -174,6 +224,12 @@ boolean LED::setLEDBrightness(uint8_t number, uint8_t brightness) {
 //brightness must be a value between 0-31
 //To turn all LEDs off but remember their previous color, set brightness to 0
 boolean LED::setLEDBrightness(uint8_t brightness) {
+  // First, boundary check
+  if (brightness > 31)
+    brightness = 31;
+  if (brightness < 0)
+    brightness = 0;
+
   _i2cPort->beginTransmission(_LEDAddress); //Communicate using the address
   _i2cPort->write(COMMAND_WRITE_ALL_LED_BRIGHTNESS); //Commaand to change all brightness
   _i2cPort->write(brightness); //Update brightness
