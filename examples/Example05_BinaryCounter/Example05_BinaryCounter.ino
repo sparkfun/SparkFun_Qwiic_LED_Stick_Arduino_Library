@@ -48,9 +48,9 @@ void loop() {
 
 //Display binary on LEDS (LSB==LED10) of length LEDLength
 void binaryLEDDisplay(int count, byte LEDLength) {
-  byte redArray[]   = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-  byte greenArray[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-  byte blueArray[]  = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+  byte redArray[LEDLength];
+  byte greenArray[LEDLength];
+  byte blueArray[LEDLength];
   
   //This for loop will repeat for each pixel of the LED Stick
   for (byte i = 0; i < LEDLength; i++) {
@@ -74,6 +74,8 @@ void binaryLEDDisplay(int count, byte LEDLength) {
     //means that the (10-i)th LED will be red if the ith bit of the
     //count is 1, and will be off otherwise
     redArray[LEDLength - i - 1] = 255 * ithBitTrue;
+    greenArray[i] = 0;
+    blueArray[i] = 0;
   }
   LEDStick.setLEDColor(redArray, greenArray, blueArray, 10);
 }
