@@ -21,6 +21,7 @@ Documentation
 * **[Product Repository](https://github.com/sparkfunX/Qwiic_LED_Stick)** - Main repository (including hardware files)
 
 Products that use this library
+--------------
 
 * [COM-18354](https://www.sparkfun.com/products/18354)
 * [SPX-14783](https://www.sparkfun.com/products/14783)
